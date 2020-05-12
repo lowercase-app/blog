@@ -150,6 +150,24 @@ export default {
 
 .blog-list__tags {
   margin-bottom: 15px;
+  list-style: none;
+  padding-left: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.blog-list__tags li {
+  margin-right: 0.5rem;
+}
+.blog-list__tags li button {
+  text-align: center;
+  padding: 0.25rem;
+  background-color: #ffffff;
+  color: #999999;
+  border: #999999 solid 1px;
+  border-radius: 0.25rem;
+  display: flex;
+  cursor: pointer;
 }
 
 .button--pagination {
@@ -174,6 +192,14 @@ export default {
 .clear-filter-btn {
   align-self: center;
   margin-left: 20px;
+  text-align: center;
+  padding: 0.25rem;
+  background-color: #ff725c;
+  color: #ffffff;
+  border: #ff725c solid 1px;
+  border-radius: 0.25rem;
+  display: flex;
+  cursor: pointer;
 }
 
 .filtered-heading {
