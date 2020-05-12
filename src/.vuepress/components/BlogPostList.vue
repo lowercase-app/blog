@@ -118,6 +118,7 @@ export default {
             <button @click="addTag(tag)">{{ tag }}</button>
           </li>
         </ul>
+        <hr />
       </li>
     </ul>
 

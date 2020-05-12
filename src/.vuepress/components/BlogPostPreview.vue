@@ -25,14 +25,18 @@ export default {
 <template>
   <section>
     <time>{{ formatPublishDate }}</time>
-    <h3 class="blog-post__title">{{ item.frontmatter.title }}</h3>
+    <h3 class="blog-post__title">
+      <router-link :to="item.path">{{ item.frontmatter.title }}</router-link>
+    </h3>
     <p v-if="item.frontmatter.excerpt">{{ item.frontmatter.excerpt }}</p>
     <p v-if="item.readingTime">Estimated time: {{ item.readingTime.text }}</p>
-    <router-link class="button blog-post__button" :to="item.path">Read More ></router-link>
   </section>
 </template>
 
 <style scoped>
+a {
+  color: #2c3e50;
+}
 .blog-post__button {
   margin-bottom: 1.5rem;
   display: inline-block;
