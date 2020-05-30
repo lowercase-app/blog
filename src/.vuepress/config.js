@@ -4,9 +4,9 @@ module.exports = {
   title: "lowercase blog",
   dest: "./public",
   themeConfig: {
-    repo: "https://blog.lowercase.app",
-    repoLabel: "Repo",
-    editLinks: true,
+    repo: "https://www.lowercase.app",
+    repoLabel: "lowercase.com",
+    editLinks: false,
     editLinkText: "Found a bug? Help me improve this page!",
     nav: [
       { text: "Blog", link: "/" },
