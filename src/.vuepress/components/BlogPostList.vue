@@ -104,18 +104,23 @@ export default {
 <template>
   <div>
     <div v-if="selectedTags.length > 0" class="filtered-heading">
-      <h2>Filtered by {{ selectedTags.join(',') }}</h2>
-      <button type="button" @click="resetTags" class="btn clear-filter-btn">Clear filter</button>
+      <h2>Filtered by {{ selectedTags.join(",") }}</h2>
+      <button type="button" @click="resetTags" class="btn clear-filter-btn">
+        Clear filter
+      </button>
     </div>
     <ul class="blog-list">
       <li v-for="(item, index) in filteredList" class="blog-list__item">
         <BlogPostPreview
-          v-show="index >= currentPage * pageSize && index < (currentPage + 1) * pageSize"
+          v-show="
+            index >= currentPage * pageSize &&
+              index < (currentPage + 1) * pageSize
+          "
           :item="item"
         />
         <ul v-for="tag in item.frontmatter.tags" class="blog-list__tags">
           <li>
-            <button @click="addTag(tag)">{{ tag }}</button>
+            <span @click="addTag(tag)">{{ tag }}</span>
           </li>
         </ul>
         <hr />
@@ -128,13 +133,17 @@ export default {
         @click="previousPage"
         class="button--pagination"
         type="button"
-      >Previous</button>
+      >
+        Previous
+      </button>
       <button
         v-show="currentPage < totalPages - 1"
         @click="nextPage"
         class="button--pagination"
         type="button"
-      >Next</button>
+      >
+        Next
+      </button>
     </div>
   </div>
 </template>
@@ -160,14 +169,14 @@ export default {
 .blog-list__tags li {
   margin-right: 0.5rem;
 }
-.blog-list__tags li button {
-  text-align: center;
-  padding: 0.25rem;
-  background-color: #ffffff;
-  color: #999999;
-  border: #999999 solid 1px;
-  border-radius: 0.25rem;
-  display: flex;
+.blog-list__tags li span {
+  background: #777;
+  color: #fff;
+  font-size: 90%;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  white-space: nowrap;
   cursor: pointer;
 }
 
