@@ -5,7 +5,7 @@ excerpt: Here is a little bit about my post.
 type: post
 blog: false
 sitemap:
-    - exclude: true
+    exclude: true
 tags:
     - HTML
     - CSS
