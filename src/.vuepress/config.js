@@ -6,6 +6,8 @@ module.exports = {
   themeConfig: {
     repo: "https://www.lowercase.app",
     repoLabel: "lowercase.com",
+    domain: "https://blog.lowercase.app",
+    twitter: "@lowercase_app",
     editLinks: false,
     editLinkText: "Found a bug? Help me improve this page!",
     nav: [
@@ -18,19 +20,34 @@ module.exports = {
     pageSize: 5,
     startPage: 0,
   },
-  plugins: [
-    [
-      "vuepress-plugin-rss",
-      {
-        base_url: "/",
-        site_url: "https://blog.lowercase.app",
-        filter: (frontmatter) => frontmatter.date <= new Date(currentDateUTC),
-        count: 20,
+  plugins: {
+    sitemap: {
+      hostname: "https://blog.lowercase.app",
+    },
+    rss: {
+      base_url: "/",
+      site_url: "https://blog.lowercase.app",
+      filter: (frontmatter) => frontmatter.date <= new Date(currentDateUTC),
+      count: 20,
+    },
+    "vuepress-plugin-reading-time": {},
+    "vuepress-plugin-janitor": {},
+    seo: {
+      image: ($page, $site) =>
+        $page.frontmatter.image
+          ? $site.themeConfig.domain + $page.frontmatter.image
+          : "",
+      customMeta: (add, context) => {
+        const { $site } = context;
+
+        add("twitter:site", $site.themeConfig.twitter);
+        add("twitter:creator", $site.themeConfig.twitter);
+        add("twitter:domain", "https://www.lowercase.app");
+        add("og:locale", "en_US");
+        add("og:image:type", "image/png");
       },
-    ],
-    "vuepress-plugin-reading-time",
-    "vuepress-plugin-janitor",
-  ],
+    },
+  },
   head: [
     [
       "link",
