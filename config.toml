@@ -29,11 +29,11 @@ enableEmoji = true
 
 	# Add links to your accounts. Remove the ones you don't want to include.
 	# Main
-	email = "hello@lowercase.app"
-    twitter = "@lowercase_app"
+	email = "mailto:hello@lowercase.app"
+    twitter = "https://twitter.com/lowercase_app"
 
 	# Programming
-    github = "@lowercase-app"
+    github = "https://github.com/lowercase-app"
 
 # Menu links along the sidebar navigation.
 [[menu.main]]
