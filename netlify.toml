@@ -1,12 +1,42 @@
-# Hugo default output directory
-/public
+# netlify.toml
 
-## OS Files
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
+[build]
+publish = "public"
+command = "hugo --gc --minify"
 
-# OSX
-.DS_Store
+[context.production.environment]
+HUGO_VERSION = "0.72.0"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+
+[context.split1]
+command = "hugo --gc --minify --enableGitInfo"
+
+[context.split1.environment]
+HUGO_VERSION = "0.72.0"
+HUGO_ENV = "production"
+
+[context.deploy-preview]
+command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+
+[context.deploy-preview.environment]
+HUGO_VERSION = "0.72.0"
+
+[context.branch-deploy]
+command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy.environment]
+HUGO_VERSION = "0.72.0"
+
+[context.next.environment]
+HUGO_ENABLEGITINFO = "true"
+
+# netlify.toml
+
+
+
+[[redirects]]
+  from = "https://lowercase-blog.netlify.app*"
+  to = "https://www.lowercase.app/:splat"
+  status = 301
+  force = true #COMMENT: ensure that we always redirect
